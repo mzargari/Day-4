@@ -1,0 +1,42 @@
+---
+title: "Quarto"
+format: html
+editor: visual
+---
+
+## Leslie matrix example
+
+Model population changes using the same example we did in lecture.
+
+```{r}
+insect_leslie <- matrix(c(0, 0, 600, 0.2, 0, 0, 0, 0.08, 0), nrow = 3, ncol = 3, byrow = TRUE)
+
+insect_leslie
+```
+
+```{r}
+# Initial condition
+
+insect_y0 <- c(12000, 700, 500)
+```
+
+```{r}
+# Insect populations for year 1
+insect_y1 <- insect_leslie %*% insect_y0
+
+insect_y1
+```
+
+```{r}
+# Insect populations for year 2
+insect_y2 <- insect_leslie %*% insect_y1
+
+insect_y2
+```
+
+```{r}
+# Insect populations for year 3
+insect_y3 <- insect_leslie %*% insect_y2
+
+insect_y3
+```
